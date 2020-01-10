@@ -20,10 +20,20 @@ function dfEvalCondition(el, args, on_change) {
     return on_change;
   }
   else if(args.eq) {
-    return el.val() == args.eq;
+    a = args.eq.split('/');
+    for(let i = 0; i < a.length; i++) {
+      if(el.val() == a[i]) {
+        return true;
+      }
+    }
   }
   else if(args.not) {
-    return el.val() != args.not;
+    a = args.not.split('/');
+    for(let i = 0; i < a.length; i++) {
+      if(el.val() != a[i]) {
+        return true;
+      }
+    }
   }
   return undefined;
 }
